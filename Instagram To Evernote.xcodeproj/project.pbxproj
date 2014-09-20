@@ -21,6 +21,7 @@
 		C99F95CB19CE4B7800A1BFCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F95AD19CE4B7800A1BFCA /* UIKit.framework */; };
 		C99F95D319CE4B7800A1BFCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99F95D119CE4B7800A1BFCA /* InfoPlist.strings */; };
 		C99F95D519CE4B7800A1BFCA /* Instagram_To_EvernoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95D419CE4B7800A1BFCA /* Instagram_To_EvernoteTests.m */; };
+		C99F95E119CE4C4400A1BFCA /* PFInstagramObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95E019CE4C4400A1BFCA /* PFInstagramObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		C99F95D019CE4B7800A1BFCA /* Instagram To EvernoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Instagram To EvernoteTests-Info.plist"; sourceTree = "<group>"; };
 		C99F95D219CE4B7800A1BFCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C99F95D419CE4B7800A1BFCA /* Instagram_To_EvernoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instagram_To_EvernoteTests.m; sourceTree = "<group>"; };
+		C99F95DF19CE4C4400A1BFCA /* PFInstagramObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstagramObject.h; sourceTree = "<group>"; };
+		C99F95E019CE4C4400A1BFCA /* PFInstagramObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFInstagramObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		C99F95AF19CE4B7800A1BFCA /* Instagram To Evernote */ = {
 			isa = PBXGroup;
 			children = (
+				C99F95DE19CE4C3400A1BFCA /* Model */,
 				C99F95B819CE4B7800A1BFCA /* PFAppDelegate.h */,
 				C99F95B919CE4B7800A1BFCA /* PFAppDelegate.m */,
 				C99F95BB19CE4B7800A1BFCA /* Main.storyboard */,
@@ -150,6 +154,15 @@
 				C99F95D119CE4B7800A1BFCA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C99F95DE19CE4C3400A1BFCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C99F95DF19CE4C4400A1BFCA /* PFInstagramObject.h */,
+				C99F95E019CE4C4400A1BFCA /* PFInstagramObject.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99F95BA19CE4B7800A1BFCA /* PFAppDelegate.m in Sources */,
+				C99F95E119CE4C4400A1BFCA /* PFInstagramObject.m in Sources */,
 				C99F95C019CE4B7800A1BFCA /* PFViewController.m in Sources */,
 				C99F95B619CE4B7800A1BFCA /* main.m in Sources */,
 			);
@@ -457,6 +471,7 @@
 				C99F95DA19CE4B7800A1BFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C99F95DB19CE4B7800A1BFCA /* Build configuration list for PBXNativeTarget "Instagram To EvernoteTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +480,7 @@
 				C99F95DD19CE4B7800A1BFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
