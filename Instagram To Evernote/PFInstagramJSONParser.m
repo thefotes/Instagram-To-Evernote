@@ -27,7 +27,6 @@
     NSMutableArray *instagramObjects = [NSMutableArray new];
     NSArray *dataArray = [self instagramDataArrayFromArray:array];
     [dataArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-        NSLog(@"Dict: %@", dict);
         NSString *caption = [self captionFromDict:dict];
         NSString *link = [dict objectForKey:@"link"];
         NSURL *thumbnailURL = [NSURL URLWithString:[[[dict objectForKey:@"images"] objectForKey:@"thumbnail"] objectForKey:@"url"]];

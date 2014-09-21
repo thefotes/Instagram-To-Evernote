@@ -66,7 +66,6 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
                                                                   NSDictionary *secondJSON = [self dictionaryFromData:data];
                                                                   [returnObjects addObject:secondJSON];
                                                                   if (completionBlock) {
-//                                                                      NSLog(@"Stuff: %@", [NSArray arrayWithArray:returnObjects]);
                                                                       NSArray *instagramObjects = [[PFInstagramJSONParser sharedInstagramJSONParser] instagramObjectsFromArray:[NSArray arrayWithArray:returnObjects]];
                                                                       completionBlock(YES, instagramObjects);
                                                                   }
