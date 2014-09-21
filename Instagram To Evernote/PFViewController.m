@@ -14,6 +14,8 @@ NSString * const kInstagramID = @"kInstagramID";
 
 @interface PFViewController ()
 
+@property (copy, nonatomic) NSArray *instagramObjects;
+
 @end
 
 @implementation PFViewController
@@ -38,11 +40,9 @@ NSString * const kInstagramID = @"kInstagramID";
 - (IBAction)fetchThePhotos:(UIButton *)sender
 {
     [[PFInstagramCommunicator sharedInstagramCommunicator] requestFeedForAuthenticatedUserWithCompletion:^(BOOL success, NSArray *returnedData) {
-        NSLog(@"SUccess: %@", @(success));
         if (success) {
-            [returnedData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                NSLog(@"OBJ: %@", obj);
-            }];
+            self.instagramObjects = [returnedData copy];
+            [self.instagramPhotoCollectionView reloadData];
         }
     }];
 }
@@ -54,12 +54,13 @@ NSString * const kInstagramID = @"kInstagramID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return self.instagramObjects.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PFInstagramCell *cell = ((PFInstagramCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kInstagramID forIndexPath:indexPath]);
+    [cell setupCellForInstagramObject:self.instagramObjects[indexPath.row]];
     return cell;
 }
 
