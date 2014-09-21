@@ -16,6 +16,6 @@
 @property (strong, nonatomic) NSURL *standardResolutionURL;
 @property (strong, nonatomic) NSDate *createdDate;
 
-- (id)initWithCaption:(NSString *)caption link:(NSString *)link thumbnailURL:(NSURL *)thumbnailURL standardResolutionURL:(NSURL *)standardResolutionURL;
+- (id)initWithCaption:(NSString *)caption link:(NSString *)link thumbnailURL:(NSURL *)thumbnailURL standardResolutionURL:(NSURL *)standardResolutionURL createdDate:(NSDate *)createdDate;
 
 @end
