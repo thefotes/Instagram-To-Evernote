@@ -24,4 +24,9 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Caption: %@\n Link: %@\n ThumbnailURL: %@\n StandardResolutionURL: %@\n CreatedDate: %@\n", self.caption, self.link, self.thumbnailURL, self.standardResolutionURL, self.createdDate];
+}
+
 @end
