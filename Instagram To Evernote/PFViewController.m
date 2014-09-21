@@ -18,7 +18,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[PFInstagramCommunicator sharedInstagramCommunicator] authenticateUser];
+
 }
+
+- (IBAction)fetchThePhotos:(UIButton *)sender
+{
+    [[PFInstagramCommunicator sharedInstagramCommunicator] requestFeedForAuthenticatedUserWithCompletion:^(BOOL success, NSDictionary *returnedData) {
+        if (success) {
+            NSLog(@"Data: %@", returnedData);
+        }
+    }];
+}
+
 
 @end
