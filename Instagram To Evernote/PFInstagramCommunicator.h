@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^InstagramRequestCompletionBlock) (BOOL success, NSDictionary *returnedData);
 @interface PFInstagramCommunicator : NSObject
 
 + (instancetype)sharedInstagramCommunicator;
 
 - (void)handleOpenOAuthURL:(NSURL *)url;
-- (void)authenticateUser;
+- (void)requestFeedForAuthenticatedUserWithCompletion:(InstagramRequestCompletionBlock)completionBlock;
 
 @end

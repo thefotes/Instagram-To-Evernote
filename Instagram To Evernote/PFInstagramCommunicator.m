@@ -12,9 +12,12 @@ NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
 NSString * const kRedirectURI = @"peterfoti://instagram_callback";
 NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
 
+#define UsersFeedString @"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@"
+
 @interface PFInstagramCommunicator ()
 
 @property (copy, nonatomic) NSURL *authURL;
+@property (copy, nonatomic) NSString *authToken;
 
 @end
 
@@ -41,6 +44,40 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
     [[NSUserDefaults standardUserDefaults] setObject:[parts lastObject] forKey:kInstagramAuthTokenIdentifier];
 }
 
+- (void)requestFeedForAuthenticatedUserWithCompletion:(InstagramRequestCompletionBlock)completionBlock
+{
+    if ([self userIsAuthenticated]) {
+        //perform request
+        NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:UsersFeedString, self.authToken]];
+        NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:requestURL];
+        urlRequest.HTTPMethod = @"GET";
+        [NSURLConnection sendAsynchronousRequest:urlRequest
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                   NSLog(@"Response: %@", response);
+                                   NSLog(@"Error: %@", connectionError);
+                                   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                        options:0
+                                                                                          error:nil];
+                                   if (completionBlock) {
+                                       completionBlock(YES, json);
+                                   }
+                               }];
+    } else {
+        [self authenticateUser];
+    }
+}
+
+- (BOOL)userIsAuthenticated
+{
+    NSString *authToken = [[NSUserDefaults standardUserDefaults] objectForKey:kInstagramAuthTokenIdentifier];
+    if (authToken) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 #pragma mark Properties
 
 - (NSURL *)authURL
@@ -53,4 +90,8 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
     return _authURL;
 }
 
+- (NSString *)authToken
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kInstagramAuthTokenIdentifier];
+}
 @end
