@@ -8,6 +8,16 @@
 
 #import "PFInstagramCommunicator.h"
 
+NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
+NSString * const kRedirectURI = @"peterfoti://instagram_callback";
+NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
+
+@interface PFInstagramCommunicator ()
+
+@property (copy, nonatomic) NSURL *authURL;
+
+@end
+
 @implementation PFInstagramCommunicator
 
 + (instancetype)sharedInstagramCommunicator
@@ -22,11 +32,25 @@
 
 - (void)authenticateUser
 {
-    //TODO: Authenticate User
+    [[UIApplication sharedApplication] openURL:self.authURL];
 }
 
 - (void)handleOpenOAuthURL:(NSURL *)url
 {
-    NSLog(@"URL: %@", url);
+    NSArray *parts = [[url absoluteString] componentsSeparatedByString:@"="];
+    [[NSUserDefaults standardUserDefaults] setObject:[parts lastObject] forKey:kInstagramAuthTokenIdentifier];
 }
+
+#pragma mark Properties
+
+- (NSURL *)authURL
+{
+    if (!_authURL) {
+        NSString *authURLString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", kClientID, kRedirectURI];
+        _authURL = [NSURL URLWithString:authURLString];
+    }
+    
+    return _authURL;
+}
+
 @end
