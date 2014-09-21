@@ -7,16 +7,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>en-pjfoti</string>
+				<string></string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>peterfoti</string>
+				<string></string>
 			</array>
 			<key>CFBundleURLName</key>
-			<string>com.peterfoti.instagram</string>
+			<string></string>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

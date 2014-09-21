@@ -11,8 +11,8 @@
 #import "PFInstagramObject.h"
 #import "PFInstagramJSONParser.h"
 
-NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
-NSString * const kRedirectURI = @"peterfoti://instagram_callback";
+NSString * const kClientID = @"";
+NSString * const kRedirectURI = @"";
 NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
 
 #define UsersFeedString @"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@&count=100"
