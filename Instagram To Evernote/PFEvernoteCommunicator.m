@@ -33,7 +33,6 @@
         }
         
         ENNotebook *notebook = [self notebookNamed:notebookName];
-        NSLog(@"Notebook: %@",notebook);
         [[ENSession sharedSession] uploadNote:note
                                      notebook:notebook
                                    completion:^(ENNoteRef *noteRef, NSError *uploadNoteError) {
