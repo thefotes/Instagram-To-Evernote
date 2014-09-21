@@ -65,7 +65,6 @@ NSString * const kInstagramID = @"kInstagramID";
     }];
 }
 
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;

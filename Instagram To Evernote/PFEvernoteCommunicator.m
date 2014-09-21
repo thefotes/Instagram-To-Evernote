@@ -25,15 +25,26 @@
 
 - (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects withCompletion:(EvernoteUploadCompletionBlock)completionBlock
 {
+    __block int numberOfErrors = 0;
     for (PFInstagramObject *obj in instagramObjects) {
         ENNote *note = [ENNote noteFromInstagramObject:obj];
         [[ENSession sharedSession] uploadNote:note
                                      notebook:nil
                                    completion:^(ENNoteRef *noteRef, NSError *uploadNoteError) {
                                        if (uploadNoteError) {
+                                           numberOfErrors++;
                                            NSLog(@"Upload Error: %@", uploadNoteError);
                                        }
                                    }];
+    }
+    if (numberOfErrors == 0) {
+        if (completionBlock) {
+            completionBlock(YES);
+        }
+    } else {
+        if (completionBlock) {
+            completionBlock(NO);
+        }
     }
 }
 
