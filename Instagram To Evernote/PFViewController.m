@@ -23,7 +23,7 @@
 
 - (IBAction)fetchThePhotos:(UIButton *)sender
 {
-    [[PFInstagramCommunicator sharedInstagramCommunicator] requestFeedForAuthenticatedUserWithCompletion:^(BOOL success, NSDictionary *returnedData) {
+    [[PFInstagramCommunicator sharedInstagramCommunicator] requestFeedForAuthenticatedUserWithCompletion:^(BOOL success, NSArray *returnedData) {
         if (success) {
             NSLog(@"Data: %@", returnedData);
         }
