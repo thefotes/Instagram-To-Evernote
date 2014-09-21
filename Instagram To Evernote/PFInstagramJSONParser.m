@@ -27,7 +27,8 @@
     NSMutableArray *instagramObjects = [NSMutableArray new];
     NSArray *dataArray = [self instagramDataArrayFromArray:array];
     [dataArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-        NSString *caption = [[dict objectForKey:@"caption"] objectForKey:@"text"];
+        NSLog(@"Dict: %@", dict);
+        NSString *caption = [self captionFromDict:dict];
         NSString *link = [dict objectForKey:@"link"];
         NSURL *thumbnailURL = [NSURL URLWithString:[[[dict objectForKey:@"images"] objectForKey:@"thumbnail"] objectForKey:@"url"]];
         NSURL *standardResolutionURL = [NSURL URLWithString:[[[dict objectForKey:@"images"] objectForKey:@"standard_resolution"] objectForKey:@"url"]];
@@ -45,6 +46,23 @@
 
 - (NSArray *)instagramDataArrayFromArray:(NSArray *)dataArray
 {
-    return [[dataArray firstObject] objectForKey:@"data"];
+    NSMutableArray *mutableDataArray = [[[dataArray firstObject] objectForKey:@"data"] mutableCopy];
+    for (id obj in [[dataArray lastObject] objectForKey:@"data"]) {
+        [mutableDataArray addObject:obj];
+    }
+    return mutableDataArray;
 }
+
+- (NSString *)captionFromDict:(NSDictionary *)dict
+{
+    NSString *caption;
+    if ([[dict objectForKey:@"caption"] isKindOfClass:[NSDictionary class]]) {
+        caption = [[dict objectForKey:@"caption"] objectForKey:@"text"];
+    } else {
+        caption = @"";
+    }
+    
+    return caption;
+}
+
 @end
