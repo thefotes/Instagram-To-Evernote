@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFViewController : UIViewController
+@interface PFViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (strong, nonatomic) IBOutlet UICollectionView *instagramPhotoCollectionView;
 
 @end

@@ -26,6 +26,8 @@
 		C99F95E819CE4C7100A1BFCA /* PFEvernoteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95E719CE4C7100A1BFCA /* PFEvernoteCommunicator.m */; };
 		C99F95EC19CE5BEF00A1BFCA /* NSDictionary+HasMorePhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95EB19CE5BEF00A1BFCA /* NSDictionary+HasMorePhotos.m */; };
 		C99F95F019CE614800A1BFCA /* PFInstagramJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95EF19CE614800A1BFCA /* PFInstagramJSONParser.m */; };
+		C99F95FA19CE734C00A1BFCA /* PFInstagramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95F919CE734C00A1BFCA /* PFInstagramCell.m */; };
+		C99F95FC19CE739B00A1BFCA /* PFInstagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99F95FB19CE739B00A1BFCA /* PFInstagramCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		C99F95EB19CE5BEF00A1BFCA /* NSDictionary+HasMorePhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HasMorePhotos.m"; sourceTree = "<group>"; };
 		C99F95EE19CE614800A1BFCA /* PFInstagramJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstagramJSONParser.h; sourceTree = "<group>"; };
 		C99F95EF19CE614800A1BFCA /* PFInstagramJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFInstagramJSONParser.m; sourceTree = "<group>"; };
+		C99F95F819CE734C00A1BFCA /* PFInstagramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstagramCell.h; sourceTree = "<group>"; };
+		C99F95F919CE734C00A1BFCA /* PFInstagramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFInstagramCell.m; sourceTree = "<group>"; };
+		C99F95FB19CE739B00A1BFCA /* PFInstagramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFInstagramCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,7 @@
 		C99F95AF19CE4B7800A1BFCA /* Instagram To Evernote */ = {
 			isa = PBXGroup;
 			children = (
+				C99F95F719CE733600A1BFCA /* Views */,
 				C99F95ED19CE613700A1BFCA /* Parsers */,
 				C99F95E919CE5BDC00A1BFCA /* Categories */,
 				C99F95E219CE4C5A00A1BFCA /* Network Communicators */,
@@ -209,6 +215,16 @@
 			name = Parsers;
 			sourceTree = "<group>";
 		};
+		C99F95F719CE733600A1BFCA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C99F95F819CE734C00A1BFCA /* PFInstagramCell.h */,
+				C99F95F919CE734C00A1BFCA /* PFInstagramCell.m */,
+				C99F95FB19CE739B00A1BFCA /* PFInstagramCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99F95FC19CE739B00A1BFCA /* PFInstagramCell.xib in Resources */,
 				C99F95C219CE4B7800A1BFCA /* Images.xcassets in Resources */,
 				C99F95B419CE4B7800A1BFCA /* InfoPlist.strings in Resources */,
 				C99F95BD19CE4B7800A1BFCA /* Main.storyboard in Resources */,
@@ -308,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99F95BA19CE4B7800A1BFCA /* PFAppDelegate.m in Sources */,
+				C99F95FA19CE734C00A1BFCA /* PFInstagramCell.m in Sources */,
 				C99F95E119CE4C4400A1BFCA /* PFInstagramObject.m in Sources */,
 				C99F95E819CE4C7100A1BFCA /* PFEvernoteCommunicator.m in Sources */,
 				C99F95C019CE4B7800A1BFCA /* PFViewController.m in Sources */,
