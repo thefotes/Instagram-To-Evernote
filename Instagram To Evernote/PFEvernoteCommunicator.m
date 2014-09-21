@@ -8,6 +8,8 @@
 
 #import "PFEvernoteCommunicator.h"
 #import <ENSDK/ENSDK.h>
+#import "PFInstagramObject.h"
+#import "ENNote+NoteFromInstagramObject.h"
 
 @implementation PFEvernoteCommunicator
 
@@ -21,9 +23,18 @@
     return sharedEvernoteCommunicator;
 }
 
-- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects withCompletion:(EvernoteUploadCompletionBlock)completionBlock
 {
-    
+    for (PFInstagramObject *obj in instagramObjects) {
+        ENNote *note = [ENNote noteFromInstagramObject:obj];
+        [[ENSession sharedSession] uploadNote:note
+                                     notebook:nil
+                                   completion:^(ENNoteRef *noteRef, NSError *uploadNoteError) {
+                                       if (uploadNoteError) {
+                                           NSLog(@"Upload Error: %@", uploadNoteError);
+                                       }
+                                   }];
+    }
 }
 
 @end
