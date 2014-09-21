@@ -9,6 +9,7 @@
 #import "PFInstagramCommunicator.h"
 #import "NSDictionary+HasMorePhotos.h"
 #import "PFInstagramObject.h"
+#import "PFInstagramJSONParser.h"
 
 NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
 NSString * const kRedirectURI = @"peterfoti://instagram_callback";
@@ -65,12 +66,15 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
                                                                   NSDictionary *secondJSON = [self dictionaryFromData:data];
                                                                   [returnObjects addObject:secondJSON];
                                                                   if (completionBlock) {
-                                                                      completionBlock(YES, [NSArray arrayWithArray:returnObjects]);
+//                                                                      NSLog(@"Stuff: %@", [NSArray arrayWithArray:returnObjects]);
+                                                                      NSArray *instagramObjects = [[PFInstagramJSONParser sharedInstagramJSONParser] instagramObjectsFromArray:[NSArray arrayWithArray:returnObjects]];
+                                                                      completionBlock(YES, instagramObjects);
                                                                   }
                                                               }];
                                    } else {
                                        if (completionBlock) {
-                                           completionBlock(YES, [NSArray arrayWithArray:returnObjects]);
+                                           NSArray *instagramObjects = [[PFInstagramJSONParser sharedInstagramJSONParser] instagramObjectsFromArray:[NSArray arrayWithArray:returnObjects]];
+                                           completionBlock(YES, instagramObjects);
                                        }
                                    }
                                }];
