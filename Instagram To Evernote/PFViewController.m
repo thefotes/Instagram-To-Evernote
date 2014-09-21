@@ -63,9 +63,19 @@ NSString * const kInstagramID = @"kInstagramID";
                                                                                 withTags:@[@"Instagram"]
                                                                           withCompletion:^(BOOL success) {
                                                                               if (success) {
-                                                                                  //Do the happy dance
+                                                                                  [self deselectAllSelectedItems];
                                                                               }
                                                                           }];
+}
+
+- (void)deselectAllSelectedItems
+{
+    for (int i = 0; i < self.instagramObjects.count; i++) {
+        PFInstagramCell *cell = ((PFInstagramCell *)[self.instagramPhotoCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]]);
+        if (cell.isSelected) {
+            [self.instagramPhotoCollectionView deselectItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0] animated:YES];
+        }
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
