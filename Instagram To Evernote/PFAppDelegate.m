@@ -26,7 +26,6 @@ NSString * const kNoteStoreURL = @"https://www.evernote.com/shard/s135/notestore
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    NSLog(@"URL: %@", url);
     if ([url.absoluteString hasPrefix:@"peterfoti"]) {
         [[PFInstagramCommunicator sharedInstagramCommunicator] handleOpenOAuthURL:url];
     } else {

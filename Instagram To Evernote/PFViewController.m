@@ -60,7 +60,7 @@ NSString * const kInstagramID = @"kInstagramID";
 {
     [[PFEvernoteCommunicator sharedEvernoteCommunicator] uploadNotesFromInstagramObjects:self.selectedInstagramObjects withCompletion:^(BOOL success) {
         if (success) {
-            NSLog(@"Success");
+            //Do a happy dance
         }
     }];
 }
