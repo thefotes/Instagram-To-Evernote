@@ -8,16 +8,12 @@
 
 #import "PFInstagramCell.h"
 
-@implementation PFInstagramCell
+@interface PFInstagramCell ()
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+@property (strong, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+
+@end
+@implementation PFInstagramCell
 
 - (void)setSelected:(BOOL)selected
 {
@@ -28,13 +24,10 @@
         self.backgroundColor = [UIColor whiteColor];
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+- (void)setupCellForInstagramObject:(PFInstagramObject *)object
 {
-    // Drawing code
+    
 }
-*/
 
 @end

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PFInstagramObject;
+
 @interface PFInstagramCell : UICollectionViewCell
+
+- (void)setupCellForInstagramObject:(PFInstagramObject *)object;
 
 @end
