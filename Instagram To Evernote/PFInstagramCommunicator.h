@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^InstagramRequestCompletionBlock) (BOOL success, NSDictionary *returnedData);
+typedef void (^InstagramRequestCompletionBlock) (BOOL success, NSArray *returnedData);
 @interface PFInstagramCommunicator : NSObject
 
 + (instancetype)sharedInstagramCommunicator;
