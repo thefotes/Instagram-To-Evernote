@@ -10,4 +10,8 @@
 
 @interface PFInstagramJSONParser : NSObject
 
++ (instancetype)sharedInstagramJSONParser;
+
+- (NSArray *)instagramObjectsFromArray:(NSArray *)array;
+
 @end
