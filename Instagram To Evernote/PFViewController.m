@@ -9,12 +9,16 @@
 #import "PFViewController.h"
 #import "PFInstagramCommunicator.h"
 #import "PFInstagramCell.h"
+#import <ENSDK/ENSDK.h>
+#import "PFEvernoteCommunicator.h"
 
 NSString * const kInstagramID = @"kInstagramID";
 
 @interface PFViewController ()
 
 @property (copy, nonatomic) NSArray *instagramObjects;
+@property (strong, nonatomic) IBOutlet UIButton *evernoteButton;
+@property (strong, nonatomic) NSMutableArray *selectedInstagramObjects;
 
 @end
 
@@ -37,6 +41,11 @@ NSString * const kInstagramID = @"kInstagramID";
     self.instagramPhotoCollectionView.backgroundColor = [UIColor blackColor];
 }
 
+- (NSMutableArray *)selectedInstagramObjects
+{
+    return _selectedInstagramObjects = _selectedInstagramObjects ?: [NSMutableArray new];
+}
+
 - (IBAction)fetchThePhotos:(UIButton *)sender
 {
     [[PFInstagramCommunicator sharedInstagramCommunicator] requestFeedForAuthenticatedUserWithCompletion:^(BOOL success, NSArray *returnedData) {
@@ -46,6 +55,12 @@ NSString * const kInstagramID = @"kInstagramID";
         }
     }];
 }
+
+- (IBAction)evernoteTakeAction:(UIButton *)sender
+{
+    [[PFEvernoteCommunicator sharedEvernoteCommunicator] uploadNotesFromInstagramObjects:self.selectedInstagramObjects];
+}
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -66,12 +81,14 @@ NSString * const kInstagramID = @"kInstagramID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.selectedInstagramObjects addObject:self.instagramObjects[indexPath.row]];
     PFInstagramCell *cell = ((PFInstagramCell *)[collectionView cellForItemAtIndexPath:indexPath]);
     cell.selected = YES;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.selectedInstagramObjects removeObject:self.instagramObjects[indexPath.row]];
     PFInstagramCell *cell = ((PFInstagramCell *)[collectionView cellForItemAtIndexPath:indexPath]);
     cell.selected = NO;
 }
