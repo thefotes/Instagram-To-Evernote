@@ -10,4 +10,9 @@
 
 @interface PFInstagramCommunicator : NSObject
 
++ (instancetype)sharedInstagramCommunicator;
+
+- (void)handleOpenOAuthURL:(NSURL *)url;
+- (void)authenticateUser;
+
 @end
