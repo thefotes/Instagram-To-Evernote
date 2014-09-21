@@ -9,6 +9,7 @@
 #import "PFAppDelegate.h"
 #import "PFInstagramCommunicator.h"
 #import <ENSDK/ENSDK.h>
+#import "PFEvernoteCommunicator.h"
 
 NSString * const kDeveloperToken = @"S=s135:U=e0ecc9:E=14fee0daf8c:C=148965c81b0:P=1cd:A=en-devtoken:V=2:H=48546723dd25926af23016485497a3d7";
 NSString * const kNoteStoreURL = @"https://www.evernote.com/shard/s135/notestore";
@@ -20,6 +21,9 @@ NSString * const kNoteStoreURL = @"https://www.evernote.com/shard/s135/notestore
 
     [ENSession setSharedSessionDeveloperToken:kDeveloperToken
                                  noteStoreUrl:kNoteStoreURL];
+    [[ENSession sharedSession] listNotebooksWithCompletion:^(NSArray *notebooks, NSError *listNotebooksError) {
+        [[PFEvernoteCommunicator sharedEvernoteCommunicator] setNotebooks:notebooks];
+    }];
     
     return YES;
 }

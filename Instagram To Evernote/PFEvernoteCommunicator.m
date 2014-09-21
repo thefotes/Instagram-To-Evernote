@@ -23,7 +23,7 @@
     return sharedEvernoteCommunicator;
 }
 
-- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects tags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects toNotebookNamed:(NSString *)notebookName withTags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock
 {
     __block int numberOfErrors = 0;
     for (PFInstagramObject *obj in instagramObjects) {
@@ -31,8 +31,11 @@
         if (tags.count > 0) {
             note.tagNames = tags;
         }
+        
+        ENNotebook *notebook = [self notebookNamed:notebookName];
+        NSLog(@"Notebook: %@",notebook);
         [[ENSession sharedSession] uploadNote:note
-                                     notebook:nil
+                                     notebook:notebook
                                    completion:^(ENNoteRef *noteRef, NSError *uploadNoteError) {
                                        if (uploadNoteError) {
                                            numberOfErrors++;
@@ -51,4 +54,15 @@
     }
 }
 
+- (ENNotebook *)notebookNamed:(NSString *)notebookName
+{
+    ENNotebook *book = nil;
+    for (ENNotebook *noteB in self.notebooks) {
+        if ([noteB.name isEqualToString:notebookName]) {
+            book = noteB;
+        }
+    }
+    
+    return book;
+}
 @end

@@ -58,11 +58,14 @@ NSString * const kInstagramID = @"kInstagramID";
 
 - (IBAction)evernoteTakeAction:(UIButton *)sender
 {
-    [[PFEvernoteCommunicator sharedEvernoteCommunicator] uploadNotesFromInstagramObjects:self.selectedInstagramObjects tags:nil withCompletion:^(BOOL success) {
-        if (success) {
-            //Do a happy dance
-        }
-    }];
+    [[PFEvernoteCommunicator sharedEvernoteCommunicator] uploadNotesFromInstagramObjects:self.selectedInstagramObjects
+                                                                         toNotebookNamed:@"Social Networking"
+                                                                                withTags:@[@"Instagram"]
+                                                                          withCompletion:^(BOOL success) {
+                                                                              if (success) {
+                                                                                  //Do the happy dance
+                                                                              }
+                                                                          }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

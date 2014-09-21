@@ -11,8 +11,10 @@
 typedef void (^EvernoteUploadCompletionBlock) (BOOL success);
 @interface PFEvernoteCommunicator : NSObject
 
+@property (copy, nonatomic) NSArray *notebooks;
+
 + (instancetype)sharedEvernoteCommunicator;
 
-- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects tags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock;
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects toNotebookNamed:(NSString *)notebookName withTags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock;
 
 @end
