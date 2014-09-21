@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^EvernoteUploadCompletionBlock) (BOOL success);
 @interface PFEvernoteCommunicator : NSObject
+
++ (instancetype)sharedEvernoteCommunicator;
+
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects;
 
 @end
