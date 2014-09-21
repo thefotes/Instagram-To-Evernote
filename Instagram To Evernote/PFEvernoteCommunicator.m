@@ -23,11 +23,14 @@
     return sharedEvernoteCommunicator;
 }
 
-- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects withCompletion:(EvernoteUploadCompletionBlock)completionBlock
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects tags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock
 {
     __block int numberOfErrors = 0;
     for (PFInstagramObject *obj in instagramObjects) {
         ENNote *note = [ENNote noteFromInstagramObject:obj];
+        if (tags.count > 0) {
+            note.tagNames = tags;
+        }
         [[ENSession sharedSession] uploadNote:note
                                      notebook:nil
                                    completion:^(ENNoteRef *noteRef, NSError *uploadNoteError) {

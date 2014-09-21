@@ -13,6 +13,6 @@ typedef void (^EvernoteUploadCompletionBlock) (BOOL success);
 
 + (instancetype)sharedEvernoteCommunicator;
 
-- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects withCompletion:(EvernoteUploadCompletionBlock)completionBlock;
+- (void)uploadNotesFromInstagramObjects:(NSArray *)instagramObjects tags:(NSArray *)tags withCompletion:(EvernoteUploadCompletionBlock)completionBlock;
 
 @end
