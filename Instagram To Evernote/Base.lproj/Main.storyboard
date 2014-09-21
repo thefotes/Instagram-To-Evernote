@@ -41,10 +41,21 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="tDi-HD-YqG"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4c-nf-yDw">
+                                <rect key="frame" x="239" y="518" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Evernote">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="evernoteTakeAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QB1-Fv-0mi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="evernoteButton" destination="E4c-nf-yDw" id="4vO-I2-Tji"/>
                         <outlet property="instagramPhotoCollectionView" destination="lCV-e3-7oL" id="vzN-b3-GKJ"/>
                     </connections>
                 </viewController>
