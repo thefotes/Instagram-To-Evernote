@@ -7,6 +7,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>en-pjfoti</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
 				<string>peterfoti</string>
 			</array>
 			<key>CFBundleURLName</key>
