@@ -10,4 +10,17 @@
 
 @implementation PFInstagramObject
 
+- (id)initWithCaption:(NSString *)caption link:(NSString *)link thumbnailURL:(NSURL *)thumbnailURL standardResolutionURL:(NSURL *)standardResolutionURL
+{
+    self = [super init];
+    if (self) {
+        self.caption = caption;
+        self.link = link;
+        self.thumbnailURL = thumbnailURL;
+        self.standardResolutionURL = standardResolutionURL;
+    }
+    
+    return self;
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "PFInstagramCommunicator.h"
 #import "NSDictionary+HasMorePhotos.h"
+#import "PFInstagramObject.h"
 
 NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
 NSString * const kRedirectURI = @"peterfoti://instagram_callback";
@@ -77,7 +78,7 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
         [self authenticateUser];
     }
 }
-
+ 
 - (NSDictionary *)dictionaryFromData:(NSData *)data
 {
     return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
