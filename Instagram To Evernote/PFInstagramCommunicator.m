@@ -7,6 +7,7 @@
 //
 
 #import "PFInstagramCommunicator.h"
+#import "NSDictionary+HasMorePhotos.h"
 
 NSString * const kClientID = @"10ca9633911b4bfd9a6c9d4dfa861b98";
 NSString * const kRedirectURI = @"peterfoti://instagram_callback";
@@ -50,28 +51,18 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
         //perform request
         NSMutableArray *returnObjects = [NSMutableArray new];
         NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:UsersFeedString, self.authToken]];
-        NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:requestURL];
-        urlRequest.HTTPMethod = @"GET";
-        [NSURLConnection sendAsynchronousRequest:urlRequest
+        [NSURLConnection sendAsynchronousRequest:[self getRequestFromURL:requestURL]
                                            queue:[NSOperationQueue mainQueue]
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                                   NSLog(@"Response: %@", response);
-                                   NSLog(@"Error: %@", connectionError);
-                                   NSDictionary *json1 = [NSJSONSerialization JSONObjectWithData:data
-                                                                                        options:0
-                                                                                          error:nil];
-                                   [returnObjects addObject:json1];
-                                   if ([[json1 objectForKey:@"pagination"] objectForKey:@"next_url"]) {
-                                       NSURL *requestURL = [NSURL URLWithString:[[json1 objectForKey:@"pagination"] objectForKey:@"next_url"]];
-                                       NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:requestURL];
-                                       urlRequest.HTTPMethod = @"GET";
-                                       [NSURLConnection sendAsynchronousRequest:urlRequest
+                                   NSDictionary *firstJSON = [self dictionaryFromData:data];
+                                   [returnObjects addObject:firstJSON];
+                                   if ([firstJSON hasMorePhotos]) {
+                                       NSURL *requestURL = [NSURL URLWithString:[firstJSON nextURL]];
+                                       [NSURLConnection sendAsynchronousRequest:[self getRequestFromURL:requestURL]
                                                                           queue:[NSOperationQueue mainQueue]
                                                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                                                                  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                              options:0 error:nil];
-                                                                  NSLog(@"Json: %@", json);
-                                                                  [returnObjects addObject:json];
+                                                                  NSDictionary *secondJSON = [self dictionaryFromData:data];
+                                                                  [returnObjects addObject:secondJSON];
                                                                   if (completionBlock) {
                                                                       completionBlock(YES, [NSArray arrayWithArray:returnObjects]);
                                                                   }
@@ -85,6 +76,18 @@ NSString * const kInstagramAuthTokenIdentifier = @"instagramAuthToken";
     } else {
         [self authenticateUser];
     }
+}
+
+- (NSDictionary *)dictionaryFromData:(NSData *)data
+{
+    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+}
+
+- (NSURLRequest *)getRequestFromURL:(NSURL *)url
+{
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    urlRequest.HTTPMethod = @"GET";
+    return [urlRequest copy];
 }
 
 - (BOOL)userIsAuthenticated
