@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C986C05919D4B56900599A32 /* ENSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986C05719D4B56900599A32 /* ENSDK.framework */; };
+		C986C05A19D4B56900599A32 /* ENSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C986C05819D4B56900599A32 /* ENSDKResources.bundle */; };
 		C99F95AA19CE4B7800A1BFCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F95A919CE4B7800A1BFCA /* Foundation.framework */; };
 		C99F95AC19CE4B7800A1BFCA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F95AB19CE4B7800A1BFCA /* CoreGraphics.framework */; };
 		C99F95AE19CE4B7800A1BFCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F95AD19CE4B7800A1BFCA /* UIKit.framework */; };
@@ -28,8 +30,6 @@
 		C99F95F019CE614800A1BFCA /* PFInstagramJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95EF19CE614800A1BFCA /* PFInstagramJSONParser.m */; };
 		C99F95FA19CE734C00A1BFCA /* PFInstagramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F95F919CE734C00A1BFCA /* PFInstagramCell.m */; };
 		C99F95FC19CE739B00A1BFCA /* PFInstagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99F95FB19CE739B00A1BFCA /* PFInstagramCell.xib */; };
-		C99F95FF19CE7F8800A1BFCA /* ENSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F95FD19CE7F8800A1BFCA /* ENSDK.framework */; };
-		C99F960019CE7F8800A1BFCA /* ENSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C99F95FE19CE7F8800A1BFCA /* ENSDKResources.bundle */; };
 		C99F960219CE7F9600A1BFCA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F960119CE7F9600A1BFCA /* MobileCoreServices.framework */; };
 		C99F960419CE7F9D00A1BFCA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C99F960319CE7F9D00A1BFCA /* libxml2.dylib */; };
 		C99F960719CE881F00A1BFCA /* ENNote+NoteFromInstagramObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F960619CE881F00A1BFCA /* ENNote+NoteFromInstagramObject.m */; };
@@ -46,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C986C05719D4B56900599A32 /* ENSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ENSDK.framework; sourceTree = "<group>"; };
+		C986C05819D4B56900599A32 /* ENSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ENSDKResources.bundle; sourceTree = "<group>"; };
 		C99F95A619CE4B7800A1BFCA /* Instagram To Evernote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagram To Evernote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99F95A919CE4B7800A1BFCA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C99F95AB19CE4B7800A1BFCA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,8 +80,6 @@
 		C99F95F819CE734C00A1BFCA /* PFInstagramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstagramCell.h; sourceTree = "<group>"; };
 		C99F95F919CE734C00A1BFCA /* PFInstagramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFInstagramCell.m; sourceTree = "<group>"; };
 		C99F95FB19CE739B00A1BFCA /* PFInstagramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFInstagramCell.xib; sourceTree = "<group>"; };
-		C99F95FD19CE7F8800A1BFCA /* ENSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ENSDK.framework; sourceTree = "<group>"; };
-		C99F95FE19CE7F8800A1BFCA /* ENSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ENSDKResources.bundle; sourceTree = "<group>"; };
 		C99F960119CE7F9600A1BFCA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C99F960319CE7F9D00A1BFCA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		C99F960519CE881F00A1BFCA /* ENNote+NoteFromInstagramObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ENNote+NoteFromInstagramObject.h"; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C986C05919D4B56900599A32 /* ENSDK.framework in Frameworks */,
 				C99F960419CE7F9D00A1BFCA /* libxml2.dylib in Frameworks */,
 				C99F960219CE7F9600A1BFCA /* MobileCoreServices.framework in Frameworks */,
-				C99F95FF19CE7F8800A1BFCA /* ENSDK.framework in Frameworks */,
 				C99F95AC19CE4B7800A1BFCA /* CoreGraphics.framework in Frameworks */,
 				C99F95AE19CE4B7800A1BFCA /* UIKit.framework in Frameworks */,
 				C99F95AA19CE4B7800A1BFCA /* Foundation.framework in Frameworks */,
@@ -167,8 +167,8 @@
 		C99F95B019CE4B7800A1BFCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C99F95FD19CE7F8800A1BFCA /* ENSDK.framework */,
-				C99F95FE19CE7F8800A1BFCA /* ENSDKResources.bundle */,
+				C986C05719D4B56900599A32 /* ENSDK.framework */,
+				C986C05819D4B56900599A32 /* ENSDKResources.bundle */,
 				C99F95B119CE4B7800A1BFCA /* Instagram To Evernote-Info.plist */,
 				C99F95B219CE4B7800A1BFCA /* InfoPlist.strings */,
 				C99F95B519CE4B7800A1BFCA /* main.m */,
@@ -326,7 +326,7 @@
 				C99F95C219CE4B7800A1BFCA /* Images.xcassets in Resources */,
 				C99F95B419CE4B7800A1BFCA /* InfoPlist.strings in Resources */,
 				C99F95BD19CE4B7800A1BFCA /* Main.storyboard in Resources */,
-				C99F960019CE7F8800A1BFCA /* ENSDKResources.bundle in Resources */,
+				C986C05A19D4B56900599A32 /* ENSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +484,9 @@
 					"$(PROJECT_DIR)/Instagram",
 					To,
 					Evernote,
+					"$(PROJECT_DIR)/Instagram",
+					To,
+					Evernote,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Instagram To Evernote/Instagram To Evernote-Prefix.pch";
@@ -500,6 +503,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Instagram",
+					To,
+					Evernote,
 					"$(PROJECT_DIR)/Instagram",
 					To,
 					Evernote,
